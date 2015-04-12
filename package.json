@@ -1,0 +1,38 @@
+{
+  "name": "dong-build",
+  "version": "0.0.0",
+  "description": "build view and static files",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/crossjs/dong-build.git"
+  },
+  "keywords": [
+    "build",
+    "view",
+    "static"
+  ],
+  "author": {
+    "name": "crossjs",
+    "email": "liwenfu@crossjs.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/crossjs/dong-build/blob/master/LICENSE-MIT"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/crossjs/dong-build/issues"
+  },
+  "homepage": "https://github.com/crossjs/dong-build",
+  "dependencies": {
+    "chalk": "^0.5.1",
+    "dong-crypto": "^0.0.0",
+    "extend": "^2.0.0",
+    "package": "^1.0.1",
+    "vinyl-fs": "^1.0.0"
+  }
+}
