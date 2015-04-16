@@ -21,8 +21,11 @@ module.exports = function(options) {
 
   options = extend({
     root: '.',
+    size: 8,
     views: '*.html'
   }, pkg && pkg.dong || {}, options)
+
+  options.pkg = pkg;
 
   require('./lib/build')(options)
 
