@@ -6,11 +6,9 @@
  * Licensed under the MIT license.
  */
 
-/**
- * @todo Integrate grunt and spm build
- */
-
 'use strict';
+
+require('gnode');
 
 var extend = require('extend')
 var getPkg = require('package')

@@ -29,11 +29,17 @@
   },
   "homepage": "https://github.com/crossjs/dong-build",
   "dependencies": {
-    "chalk": "^0.5.1",
     "dong-crypto": "^0.0.3",
+    "dong-deps": "0.0.2",
+    "dong-queue": "0.0.0",
     "extend": "^2.0.0",
+    "glob": "^5.0.5",
+    "gnode": "^0.1.1",
+    "gulp-template": "^3.0.0",
     "package": "^1.0.1",
-    "shelljs": "^0.3.0",
+    "rimraf": "^2.3.2",
+    "spm-log": "^0.1.2",
+    "spm-sea": "^0.1.0",
     "vinyl-fs": "^1.0.0"
   }
 }
