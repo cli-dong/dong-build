@@ -19,8 +19,8 @@ module.exports = function(options) {
 
   options = extend({
     root: '.',
-    size: 8,
-    views: '*.html'
+    views: '*.html',
+    force: false
   }, pkg && pkg.dong || {}, options)
 
   options.pkg = pkg;
