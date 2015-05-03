@@ -20,7 +20,8 @@ module.exports = function(options) {
   options = extend({
     root: '.',
     views: '*.html',
-    force: false
+    force: false,
+    debug: false
   }, pkg && pkg.dong || {}, options)
 
   options.pkg = pkg;
