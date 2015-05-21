@@ -1,6 +1,6 @@
 {
   "name": "dong-build",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "build view and static files",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -35,7 +35,9 @@
     "extend": "^2.0.0",
     "glob": "^5.0.5",
     "gnode": "^0.1.1",
+    "gulp-jshint": "^1.10.0",
     "gulp-template": "^3.0.0",
+    "map-stream": "0.0.5",
     "package": "^1.0.1",
     "rimraf": "^2.3.2",
     "spm-log": "^0.1.2",
