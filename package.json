@@ -1,6 +1,6 @@
 {
   "name": "dong-build",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "build view and static files",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -41,7 +41,7 @@
     "package": "^1.0.1",
     "rimraf": "^2.3.2",
     "spm-log": "^0.1.2",
-    "spm-sea": "^0.1.0",
+    "spm-sea": "^1.0.0",
     "vinyl-fs": "^1.0.0"
   }
 }

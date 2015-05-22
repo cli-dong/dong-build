@@ -8,6 +8,8 @@
     return;
   }
 
+  var lang = <%= lang %>;
+
   // debug 开关
   var debug = (function(localStorage) {
     var flag = window.location.search.indexOf('debug') > 0;
@@ -95,7 +97,7 @@
   } else {
     map.push(function(url) {
       return url.replace(/\/(?:app\/|index.js)/, function(all) {
-        return '/dist' + all;
+        return '/dist' + (lang ? ('/' + lang) : '') + all;
       });
     });
   }
@@ -119,15 +121,12 @@
 
     // 处理 md5 串
     (function(md5Map) {
-      var id;
       var uri;
 
-      for (id in md5Map) {
-        if (md5Map.hasOwnProperty(id)) {
-          uri = seajs.resolve(id);
-          idsMap[uri] = uri + '?' + md5Map[id];
-        }
-      }
+      Object.keys(md5Map).forEach(function(id) {
+        uri = seajs.resolve(id);
+        idsMap[uri] = uri + '?' + (lang ? md5Map[id][lang] : md5Map[id]);
+      });
 
       md5Map = null;
     })({

@@ -24,6 +24,10 @@ module.exports = function(options) {
     debug: false
   }, pkg && pkg.dong || {}, options)
 
+  if (typeof options.lang === 'string') {
+    options.lang = options.lang.split(/[,\s]+/)
+  }
+
   options.pkg = pkg;
 
   require('./lib/build')(options)
