@@ -18,12 +18,10 @@
     "name": "crossjs",
     "email": "liwenfu@crossjs.com"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/crossjs/dong-build/blob/master/LICENSE-MIT"
-    }
-  ],
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/crossjs/dong-build/blob/master/LICENSE-MIT"
+  }],
   "bugs": {
     "url": "https://github.com/crossjs/dong-build/issues"
   },
@@ -32,6 +30,7 @@
     "dong-crypto": "^0.1.0",
     "dong-deps": "^0.1.0",
     "dong-queue": "^0.0.0",
+    "dong-replace": "^0.0.0",
     "extend": "^2.0.0",
     "glob": "^5.0.5",
     "gnode": "^0.1.1",
