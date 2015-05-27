@@ -24,8 +24,8 @@ module.exports = function(options) {
     debug: false
   }, pkg && pkg.dong || {}, options)
 
-  if (typeof options.lang === 'string') {
-    options.lang = options.lang.split(/[,\s]+/)
+  if (typeof options.i18n === 'string') {
+    options.i18n = options.i18n.split(/[,\s]+/)
   }
 
   options.pkg = pkg;

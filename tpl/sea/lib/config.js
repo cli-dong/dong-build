@@ -8,22 +8,30 @@
     return;
   }
 
+  // 默认语言
   var lang = <%= lang %>;
 
   // debug 开关
   var debug = (function(localStorage) {
-    var flag = window.location.search.indexOf('debug') > 0;
+    var key = 'SEAJS-DEBUG';
+    var search = window.location.search;
 
-    // 增加 localStorage 支持
-    if (localStorage) {
-      if (flag) {
-        localStorage.setItem('seajs-debug', 'true');
-      } else {
-        flag = localStorage.getItem('seajs-debug') !== null;
-      }
+    // 关闭 debug
+    if (search.indexOf('no-debug') > 0) {
+      localStorage.removeItem(key);
+      return false;
     }
 
-    return flag;
+    var debug = search.indexOf('debug') > 0;
+
+    // 修改 localStorage
+    if (debug) {
+      localStorage.setItem(key, '1');
+    } else {
+      debug = localStorage.getItem(key) !== null;
+    }
+
+    return debug;
   }(window.localStorage));
 
   // 映射表
