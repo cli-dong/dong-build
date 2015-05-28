@@ -28,7 +28,7 @@ module.exports = function(options) {
     options.i18n = options.i18n.split(/[,\s]+/)
   }
 
-  options.pkg = pkg;
+  options.pkg = pkg
 
   require('./lib/build')(options)
 
