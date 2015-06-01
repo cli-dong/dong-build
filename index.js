@@ -8,28 +8,45 @@
 
 'use strict';
 
-require('gnode');
-
-var extend = require('extend')
-var getPkg = require('package')
-
-module.exports = function(options) {
-
-  var pkg = getPkg('.')
-
-  options = extend({
-    root: '.',
-    views: '*.html',
-    force: false,
-    debug: false
-  }, pkg && pkg.dong || {}, options)
-
-  if (typeof options.i18n === 'string') {
-    options.i18n = options.i18n.split(/[,\s]+/)
+module.exports = {
+  command: 'build',
+  description: '静态文件构建，包括资源哈希值生成',
+  options: [{
+    name: 'root',
+    alias: 'r',
+    description: 'Web 根目录',
+    defaults: '.'
+  }, {
+    name: 'views',
+    alias: 'v',
+    description: '视图文件',
+    defaults: '*.html'
+  }, {
+    name: 'i18n',
+    alias: 'i',
+    description: '需要构建的语言版本',
+    defaults: ''
+  }, {
+    name: 'force',
+    alias: 'f',
+    description: '先清空输出目录',
+    defaults: false
+  }, {
+    name: 'debug',
+    alias: 'd',
+    description: '仅生成 `seajs, config.js`',
+    defaults: false
+  }],
+  bootstrap: require('./lib/build'),
+  help: function(chalk) {
+    console.log('  Examples:')
+    console.log('')
+    console.log(chalk.gray('    $ ') +
+                chalk.magenta('dong build spa') +
+                chalk.gray(' ....... Single Page Application'))
+    console.log(chalk.gray('    $ ') +
+                chalk.magenta('dong build web') +
+                chalk.gray(' ....... General Web Project'))
+    console.log('')
   }
-
-  options.pkg = pkg
-
-  require('./lib/build')(options)
-
 }
