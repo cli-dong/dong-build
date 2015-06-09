@@ -1,6 +1,6 @@
 {
   "name": "dong-build",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "build view and static files",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/crossjs/dong-build",
   "dependencies": {
-    "dong-crypto": "^0.1.0",
+    "dong-crypto": "^0.1.1",
     "dong-deps": "^0.1.0",
     "dong-queue": "^0.1.0",
     "dong-replace": "^0.0.0",
