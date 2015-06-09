@@ -48,5 +48,6 @@ module.exports = {
                 chalk.magenta('dong build web') +
                 chalk.gray(' ....... General Web Project'))
     console.log('')
-  }
+  },
+  strict: true
 }
