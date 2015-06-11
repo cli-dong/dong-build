@@ -8,6 +8,28 @@
     return;
   }
 
+  // 支持的语言
+  var i18n = <%= i18n %>;
+  // 默认语言
+  var lang = <%= lang %>;
+
+  // 如果没找到对应的
+  if (i18n.indexOf(lang) === -1) {
+    // 找相似的，比如：en-GB -> en-US
+    lang = lang.split('-')[0];
+
+    if (!i18n.some(function(item) {
+      if (item.split('-')[0] === lang) {
+        // 找到
+        lang = item;
+        return true;
+      }
+    })) {
+      // 没找到，选第一个
+      lang = i18n[0];
+    }
+  }
+
   // debug 开关
   var debug = (function(localStorage) {
     var key = 'SEAJS-DEBUG';
@@ -102,7 +124,7 @@
   } else {
     map.push(function(url) {
       return url.replace(/\/(?:app\/|index.js)/, function(all) {
-        return '/dist' + all;
+        return '/dist/' + lang + all;
       });
     });
   }
@@ -130,7 +152,7 @@
 
       Object.keys(md5Map).forEach(function(id) {
         uri = seajs.resolve(id);
-        idsMap[uri] = uri + '?' +  md5Map[id];
+        idsMap[uri] = uri + '?' + md5Map[id][lang];
       });
 
       md5Map = null;
