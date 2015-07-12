@@ -1,6 +1,6 @@
 {
   "name": "dong-build",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "description": "build view and static files",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -29,14 +29,16 @@
   "dependencies": {
     "dong-crypto": "^0.1.1",
     "dong-deps": "^0.1.0",
-    "dong-queue": "^0.1.0",
+    "dong-queue": "^0.1.1",
     "dong-replace": "^0.0.0",
     "extend": "^2.0.0",
+    "figures": "^1.3.5",
     "glob": "^5.0.5",
     "gnode": "^0.1.1",
     "gulp-jshint": "^1.10.0",
     "gulp-template": "^3.0.0",
     "gulp-uglify": "^1.2.0",
+    "hooker": "^0.2.3",
     "map-stream": "0.0.5",
     "rimraf": "^2.3.2",
     "shelljs": "^0.5.0",
