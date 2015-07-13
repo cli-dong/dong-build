@@ -32,7 +32,7 @@
 
   // debug 开关
   var debug = (function(localStorage) {
-    var key = 'SEAJS-DEBUG';
+    var key = 'SEA-DEBUG';
     var search = window.location.search;
 
     // 关闭 debug
