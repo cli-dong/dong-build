@@ -1,8 +1,7 @@
+/*! <%= appname %>@<%= version %> */
 (function(window, seajs, document) {
 
   'use strict';
-
-  // <%= appname %>@<%= version %>
 
   if (!seajs) {
     return;

@@ -1,8 +1,7 @@
+/*! <%= appname %>@<%= version %> */
 (function(window, seajs, document) {
 
   'use strict';
-
-  // <%= appname %>@<%= version %>
 
   if (!seajs) {
     return;
@@ -13,31 +12,55 @@
   // 默认语言
   var lang = <%= lang %>;
 
-  // 如果没找到对应的
-  if (i18n.indexOf(lang) === -1) {
-    // 找相似的，比如：en-GB -> en-US
-    lang = lang.split('-')[0];
+  var search = window.location.search;
+  var storage = window.localStorage;
 
-    if (!i18n.some(function(item) {
-      if (item.split('-')[0] === lang) {
-        // 找到
-        lang = item;
-        return true;
+  // lang
+  (function() {
+    var match;
+
+    var key = 'LANG';
+    var val;
+
+    // query
+    if (search && (match = search.match(/[?&]lang=([-_\w]+)/))) {
+      storage.setItem(key, (lang = match[1]));
+    } else {
+      // local
+      if ((val = storage.getItem(key))) {
+        lang = val;
       }
-    })) {
-      // 没找到，选第一个
-      lang = i18n[0];
     }
-  }
+
+    // 如果没找到对应的
+    if (i18n.indexOf(lang) === -1) {
+      // 找相似的，比如：en-GB -> en-US
+      lang = lang.split('-')[0];
+
+      if (!i18n.some(function(item) {
+        if (item.split('-')[0] === lang) {
+          // 找到
+          lang = item;
+          return true;
+        }
+      })) {
+        // 没找到，选第一个
+        lang = i18n[0];
+      }
+    }
+  })();
+
+  // exports
+  seajs.i18n = i18n;
+  seajs.lang = lang;
 
   // debug 开关
-  var debug = (function(localStorage) {
+  var debug = (function() {
     var key = 'SEA-DEBUG';
-    var search = window.location.search;
 
     // 关闭 debug
     if (search.indexOf('no-debug') > 0) {
-      localStorage.removeItem(key);
+      storage.removeItem(key);
       return false;
     }
 
@@ -45,13 +68,13 @@
 
     // 修改 localStorage
     if (debug) {
-      localStorage.setItem(key, '1');
+      storage.setItem(key, '1');
     } else {
-      debug = localStorage.getItem(key) !== null;
+      debug = storage.getItem(key) !== null;
     }
 
     return debug;
-  }(window.localStorage));
+  }());
 
   // 映射表
   var map = [];
@@ -139,7 +162,6 @@
   });
 
   if (!debug) {
-
     seajs.on('request', function(a) {
       if (a.uri in idsMap) {
         a.requestUri = idsMap[a.uri];

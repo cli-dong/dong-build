@@ -1,6 +1,6 @@
 {
   "name": "dong-build",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "description": "build view and static files",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
