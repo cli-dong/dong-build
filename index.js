@@ -22,6 +22,11 @@ module.exports = {
     description: '视图文件',
     defaults: '*.html'
   }, {
+    name: 'templates',
+    alias: 't',
+    description: '需要进行变量替换的文件',
+    defaults: ''
+  }, {
     name: 'i18n',
     alias: 'i',
     description: '需要构建的语言版本',
